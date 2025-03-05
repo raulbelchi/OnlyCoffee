@@ -1,1 +1,29 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Cooper Black";
+    src: url("./assets/fonts/COOPBL.TTF") format("truetype");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Cooper Black';
+    color: white;
+    background-color: rgb(125, 73, 33);
+    width: 100vw;
+    height: 15vh;
+    font-size: 1.3rem;
+}
+
+.header img{
+    height: 80%;
+    width: auto
+}
