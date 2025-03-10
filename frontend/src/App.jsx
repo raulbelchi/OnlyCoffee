@@ -1,13 +1,15 @@
 import React from 'react'
-import './assets/styles/index.css'
+import '../public/styles/index.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Title from './components/Title'
 
 function App() {
   console.log("App cargada");
   return (
     <>
       <Header />
+      <Title />
       <Footer />
     </>
   )
