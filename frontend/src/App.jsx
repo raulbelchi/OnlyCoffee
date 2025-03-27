@@ -5,12 +5,13 @@ import Footer from './components/Footer'
 import Title from './components/Title'
 import Info from './components/info'
 import Post from './components/Post'
+import PostPage from './components/PostPage'
 
 function App() {
   return (
     <div className='flex flex-col items-center m-o p-0'>
       <Header />
-      <Post/>
+      <PostPage/>
       {/*
       <Title />
       <Info />
