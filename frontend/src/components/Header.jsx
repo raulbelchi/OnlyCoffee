@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -6,10 +7,17 @@ function Header() {
       className='flex flex-row justify-between items-center bg-coffee text-white h-20 
       font-cooper fixed w-full z-50'
     >
-      <img src='images/Logo-OC-blanco.svg' alt="logo" className='h-20 !ml-5'/>
+      <Link to='/'>
+        <img src='images/Logo-OC-blanco.svg' alt="logo" className='h-20 !ml-5'></img>
+      </Link>
+      
       <ul className='flex flex-col md:flex-row !mr-20 gap-x-4 text-lg md:text-xl'>
-        <li>Registrarse</li>
-        <li>Iniciar sesión</li>
+        <Link to='/register'>
+          <li> Registrarse</li>
+        </Link>
+        <Link to='/login'>
+          <li>Iniciar sesión</li>
+        </Link>
       </ul>
     </div>
   );

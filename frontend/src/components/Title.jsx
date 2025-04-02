@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Title() {
 
@@ -10,16 +11,12 @@ function Title() {
       <img src='/images/Logo-OC-Texto-blanco.webp' alt="logo" className='w-250 -mt-20'/>
       <h2 className='text-2xl md:text-4xl'>Tu foro online sobre café</h2>
       <div className='flex flex-row gap-x-4'>
-      <button 
-          className='bg-coffee text-white p-2 rounded-md cursor-pointer' 
-        >
-          Registrarse
-        </button>
-        <button 
-          className='bg-white text-coffee p-2 rounded-md cursor-pointer' 
-        >
-          Iniciar sesión
-        </button>
+        <Link to='/register'>
+          <button className='bg-coffee text-white p-2 rounded-md cursor-pointer'>Registrarse</button>
+        </Link>
+        <Link to='/login'>
+          <button className='bg-white text-coffee p-2 rounded-md cursor-pointer'>Iniciar sesión</button>
+        </Link>
       </div>
     </div>
   );

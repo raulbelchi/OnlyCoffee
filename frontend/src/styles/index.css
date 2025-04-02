@@ -2,6 +2,7 @@
 
 @theme{
     --font-cooper: 'Cooper Black', sans-serif;
+    --font-lato: 'Lato', sans-serif;
     --color-coffee: #7e5230;
     --color-coffee-dark: #492204;
 }
@@ -9,4 +10,9 @@
 @font-face {
     font-family: "Cooper Black";
     src: url("/fonts/COOPBL.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap') format("woff2");
 }
