@@ -5,7 +5,7 @@ import PostsForm from './PostsForm';
 
 function HomePage() {
   return (
-    <div flex className='flex flex-col items-center'>
+    <div className='flex flex-col items-center'>
         <Title />
         <PostsForm />  
         <Info />
