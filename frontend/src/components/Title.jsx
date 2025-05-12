@@ -4,7 +4,7 @@ function Title() {
 
   return (
     <div 
-      className='flex flex-col justify-center items-center h-screen w-screen gap-4 text-white bg-cover bg-center
+      className='flex flex-col justify-center items-center h-screen w-full gap-4 text-white bg-cover bg-center
       bg-[url(/images/Fondo-Degradado.jpg)] z-10'
     >
       <img src='/images/Logo-OC-Texto-blanco.webp' alt="logo" className='w-250 -mt-20'/>

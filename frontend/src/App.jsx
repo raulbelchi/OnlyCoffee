@@ -9,7 +9,7 @@ import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className='min-h-screen flex flex-col items-center m-o p-0'>
+    <div className='flex flex-col min-h-screen '>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage/>}></Route>
