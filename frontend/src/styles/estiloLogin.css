@@ -57,7 +57,7 @@
 }
 
 .formInput:focus + .formLabel, 
-.formIput:not(:placeholder-shown) + .formLabel{
+.formInput:not(:placeholder-shown) + .formLabel{
     transform: translateY(-12px) scale(.7);
     transform-origin: left top;
     color: #9C6644;

@@ -1,11 +1,10 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faXTwitter, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 function Footer() {
   return (
     <div 
-      className='mt-auto flex flex-row justify-between items-center bg-coffee-dark text-white h-20 
+      className='flex flex-row justify-between items-center bg-coffee-dark text-white h-20
       w-full m-0 p-0'
     >
       <img src='/images/Logo-OC-Texto-blanco.svg' alt="logo" className='!ml-5 w-32 md:w-40'/>

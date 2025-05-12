@@ -34,3 +34,16 @@ export const getUserPosts = async (req, res) => {
     })
     res.json(posts);
 }
+
+export const loginUser = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({
+            where: { email, password } 
+        });
+
+        res.json(user);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}

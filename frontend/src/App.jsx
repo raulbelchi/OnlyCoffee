@@ -1,4 +1,3 @@
-import React from 'react'
 import './styles/index.css'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -10,13 +9,14 @@ import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className='flex flex-col items-center m-o p-0'>
+    <div className='min-h-screen flex flex-col items-center m-o p-0'>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage/>}></Route>
         <Route path='/posts' element={<PostPage/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
+        <Route path='/profile' element={<h1>Perfil</h1>}></Route>
       </Routes>
       <Footer />
     </div>

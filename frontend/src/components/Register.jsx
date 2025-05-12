@@ -42,9 +42,11 @@ function Register() {
                     email,
                     password
                 });
-                console.log(response.data);
-
-                //redirige a /posts si todo ha ido bien
+                // Guardar el usuario en el localStorage
+                localStorage.setItem('user', JSON.stringify(response.data));
+                // Disparamos un evento para poder actualizar el header
+                window.dispatchEvent(new Event('sesionCambiada'));
+                //Redirige a /posts si todo ha ido bien
                 navigate('/posts')
 
             } catch (error) {
