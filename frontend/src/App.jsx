@@ -5,7 +5,9 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import HomePage from './components/HomePage'
 import PostPage from './components/PostPage'
+import Profile from './components/Profile'
 import { Routes, Route } from 'react-router-dom'
+
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
         <Route path='/posts' element={<PostPage/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
-        <Route path='/profile' element={<h1>Perfil</h1>}></Route>
+        <Route path='/profile' element={<Profile/>}></Route>
       </Routes>
       <Footer />
     </div>

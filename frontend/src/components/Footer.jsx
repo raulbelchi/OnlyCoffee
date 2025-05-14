@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div 
       className='flex flex-row justify-between items-center bg-coffee-dark text-white h-20
-      w-full overflow-hidden'
+      w-full overflow-hidden bottom-0'
     >
       <img src='/images/Logo-OC-Texto-blanco.svg' alt="logo" className='!ml-5 w-32 md:w-40'/>
       <ul className='flex !mr-20 gap-x-6 text-xl md:text-3xl'>

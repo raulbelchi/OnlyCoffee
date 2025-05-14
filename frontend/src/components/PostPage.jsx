@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Post from './Post';
 import PostsForm from './PostsForm';
 
@@ -10,9 +10,9 @@ function PostPage() {
   }
 
   return (
-    <div className='h-screen p-5 flex mt-20 gap-4'
+    <div className='h-screen p-5 flex gap-4'
     >
-        <button
+        {/*<button
           onClick={cambiarEstadoForm}
           className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-auto self-start'
           >

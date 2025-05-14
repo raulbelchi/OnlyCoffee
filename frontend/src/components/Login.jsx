@@ -38,8 +38,6 @@ function Login() {
     }
   }
 
-
-
   return (
     <div className='body font-lato'>
         <form class="form" onSubmit={comprobarLogin}>

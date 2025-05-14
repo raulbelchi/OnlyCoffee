@@ -4,7 +4,7 @@ import React from 'react';
 function PostsForm() {
 
     return (
-        <div className="absolute h-auto w-auto bg-coffee-light text-white rounded-xl p-6 flex flex-col z-50 font-lato items-center font-bold">
+        <div className="fixed top-1/2 left-1/2 h-auto w-auto bg-coffee-light text-white rounded-xl p-6 flex flex-col z-50 font-lato items-center font-bold">
             <h2 className='font-cooper font-bold text-3xl mb-3 '>¿Qué has bebido hoy?</h2>
             <form className='flex gap-4 justify-bewween'>
                 <div className='flex flex-col gap-4'>
