@@ -1,8 +1,9 @@
-import React from 'react';
 
-function Post() {
+function Posts() {
+
   return (
-    <div className='flex w-3/4 h-auto bg-gray-200 p-8 rounded-2xl justify-between'>
+    <div className='gap-4 p-4 h-full w-300 flex flex-col items-center overflow-y-scroll bg-fixed'>
+      <div className='flex w-3/4 h-auto bg-gray-200 p-8 rounded-2xl justify-between'>
         <div>
             <div className='flex items-center gap-2'>
                 <img src='https://i.pinimg.com/1200x/0f/68/94/0f6894e539589a50809e45833c8bb6c4.jpg' className='rounded-full h-15 w-15'></img>
@@ -41,8 +42,9 @@ function Post() {
         <img src='https://static.nationalgeographicla.com/files/styles/image_3200/public/nationalgeographic1562675.webp?w=760&h=1140' 
                 className='rounded-lg h-100 w-auto'>
         </img>
+      </div>
     </div>
   );
 }
 
-export default Post;
+export default Posts;

@@ -29,7 +29,7 @@ function Header() {
         {
           user ? (
             <>
-              <Link to='/posts'>
+              <Link to='/mainpage'>
                   <img src='images/Logo-OC-blanco.svg' alt="logo" className='h-20 !ml-5'></img>
               </Link>
                 

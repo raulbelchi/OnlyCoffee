@@ -1,4 +1,4 @@
-import PostPage from './PostPage'
+import Posts from './Posts'
 import { useState } from 'react'
 
 function Profile() {
@@ -38,8 +38,8 @@ function Profile() {
             )}
         </div>
         <div className='flex flex-col items-center mb-10'>
-            <h1 className='font-cooper text-5xl text-coffee '>Mis Posts</h1>
-            <PostPage/>
+            <h1 className='font-cooper text-5xl text-coffee'>Mis Posts</h1>
+            <Posts/>
         </div>
     </div>
   );

@@ -8,8 +8,13 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
+    const[mensajeError, setMensajeError] = useState('')
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+
+    const cambiarMensaje = (mensaje) => {
+        setMensajeError(mensaje)
+    }
 
     //Expresiones regulares para validar los campos
     const regexUsername = /^[a-zA-Z0-9_]{3,16}$/;
@@ -21,19 +26,19 @@ function Register() {
 
         //Validamos los campos
         if (username === '' || email === '' || password === '' || repeatPassword === '') {
-            alert('Por favor, completa todos los campos.');
+            cambiarMensaje('Por favor, completa todos los campos.');
             return;
         } else if (!regexUsername.test(username)) {
-            alert('El nombre de usuario debe tener entre 3 y 16 caracteres y solo puede contener letras, números y guiones bajos.');
+            cambiarMensaje('El nombre de usuario debe tener entre 3 y 16 caracteres y solo puede contener letras, números y guiones bajos.');
             return;
         } else if (!regexEmail.test(email)) {
-            alert('El correo electrónico no es válido.');
+            cambiarMensaje('El correo electrónico no es válido.');
             return;
         } else if (!regexPassword.test(password)) {
-            alert('La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.');
+            cambiarMensaje('La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.');
             return;
         } else if (password !== repeatPassword) {
-            alert('Las contraseñas no coinciden.');
+            cambiarMensaje('Las contraseñas no coinciden.');
             return;
         } else {
             try {
@@ -46,8 +51,8 @@ function Register() {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 // Disparamos un evento para poder actualizar el header
                 window.dispatchEvent(new Event('sesionCambiada'));
-                //Redirige a /posts si todo ha ido bien
-                navigate('/posts')
+                //Redirige a /MainPage si todo ha ido bien
+                navigate('/MainPage')
 
             } catch (error) {
                 console.error('Error al enviar el formulario:', error);
@@ -118,6 +123,11 @@ function Register() {
                     </div>
 
                     <input type="submit" className="formSubmit" value="Registrarse" />
+
+                    {/* Para mostrar el mensaje de error en caso de que los datos no sean correctos */}
+                    {mensajeError && (
+                    <label className="text-red-600">{mensajeError}</label>
+                    )}
                 </div>
             </form>
         </div>

@@ -1,5 +1,6 @@
 import { User } from '../models/Users.js';
 import { Post } from '../models/Posts.js';
+import bcrypt from 'bcrypt'; //Cifrar contraseñas
 
 export const getUsers = async (req, res) => {
     try{
@@ -14,10 +15,12 @@ export const getUsers = async (req, res) => {
 export const createUser = async (req, res) => {
     const { username, email, password, profilePicture } = req.body;
     try{
+        const contraseñaCifrada = await bcrypt.hash(password, 10)
+
         const newUser = await User.create({
             username,
             email,
-            password,
+            password: contraseñaCifrada,
             profilePicture
         })
     
@@ -38,10 +41,19 @@ export const getUserPosts = async (req, res) => {
 export const loginUser = async (req, res) => {
     const { email, password } = req.body;
     try {
-        const user = await User.findOne({
-            where: { email, password } 
-        });
+        //Buscar usuario
+        const user = await User.findOne({where: { email } });
+        if(!user){
+            return res.status(401).json({ message: 'Usuario no encontrado' });
+        }
 
+        //Comparar contraseña
+        const compararContraseña = await bcrypt.compare(password, user.password)
+        if(!compararContraseña){
+            return res.status(401).json({ message: 'Contraseña incorrecta' });
+        }
+
+        //Si el correo y la contraseña están bien nos devuelve los datos del usuario
         res.json(user);
     } catch (error) {
         return res.status(500).json({ message: error.message });

@@ -1,7 +1,7 @@
 import express from 'express';
 import userRoutes from '../routes/users.routes.js';
 import postsRoutes from '../routes/posts.routes.js';
-import cors from 'cors';
+import cors from 'cors'; //Escuchar peticiones desde el frontend
 
 const app = express();
 
