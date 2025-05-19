@@ -3,7 +3,7 @@ import {sequelize} from '../database/database.js';
 
 async function main(){
     try{
-        await sequelize.sync({alter: true}) 
+        await sequelize.sync({force: false}) 
         app.listen(3000)
         console.log('Servidor corriendo en el puerto 3000')
     } catch (error) {

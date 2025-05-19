@@ -1,4 +1,7 @@
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
 function Posts() {
 
   return (
@@ -39,9 +42,15 @@ function Posts() {
                 </span>
             </div>
         </div>
-        <img src='https://static.nationalgeographicla.com/files/styles/image_3200/public/nationalgeographic1562675.webp?w=760&h=1140' 
-                className='rounded-lg h-100 w-auto'>
-        </img>
+        <div className="flex flex-col gap-2">
+            <img src='https://static.nationalgeographicla.com/files/styles/image_3200/public/nationalgeographic1562675.webp?w=760&h=1140' 
+                    className='rounded-lg h-auto w-250'>
+            </img>
+            <div className="flex justify-end items-center gap-2 text-lg font-semibold">
+                <span>0</span>
+                <FontAwesomeIcon icon={faHeart} className='cursor-pointer text-gray-500'/>
+            </div>
+        </div>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ function Header() {
 
     return () => {
       window.removeEventListener('userChanged', actualizarEstado);
-  };
+    };
   }, []);
 
   return (

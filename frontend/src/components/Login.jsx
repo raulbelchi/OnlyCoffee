@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'; //para redirigir a otra p√
 
 function Login() {
 
-  const [email, setEmail] = useState('');
+  const[email, setEmail] = useState('');
   const[password, setPassword] = useState('');
   const[mensajeError, setMensajeError] = useState('')
 

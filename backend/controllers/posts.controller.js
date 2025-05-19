@@ -9,6 +9,15 @@ export const getPosts = async (req, res) => {
     }
 }
 
+export const getMyPosts = async (req, res) => {
+    try{
+        const myPosts = Post.findAll({ where: { user_id } })
+        res.json(myPosts);
+    } catch(error) {
+        return res.status(500).json({message: error.message})
+    }
+}
+
 export const createPost = async (req, res) => {
     try{
         const { metodoEx, cafetera, cafe, intesidad, descripcion, user_id, foto } = req.body;

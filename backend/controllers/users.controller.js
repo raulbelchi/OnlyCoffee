@@ -59,3 +59,33 @@ export const loginUser = async (req, res) => {
         return res.status(500).json({ message: error.message });
     }
 }
+
+export const cambiarPfp = async(req, res) => {
+    const { id } = req.body
+
+    // Verificamos si se ha subido la imagen correctamente
+    if (!req.file) {
+        return res.status(400).json({ message: "No se envió ninguna imagen." });
+    }
+
+    try{
+        const nuevaFoto = req.file.filename
+
+        const actualizar = await User.update(
+            {profilePicture: nuevaFoto},
+            {where: {id}}
+        );
+
+        //actualizar[0] es el número de filas afectadas
+        if(actualizar[0] === 0){
+            return res.status(404).json({ message: "Usuario no encontrado." });
+        }
+
+        res.json({
+            message: "Foto de perfil actualizada correctamente",
+            profilePicture: nuevaFoto
+        });
+    } catch(error){
+        return res.status(500).json({ message: error.message });
+    }
+}

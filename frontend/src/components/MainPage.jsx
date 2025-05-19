@@ -42,7 +42,13 @@ function MainPage(){
                                         <input type='text' className='bg-white rounded mb-2 text-black p-1 text-sm'/>
 
                                         Intensidad: 
-                                        <input type='text' className='bg-white rounded text-black p-1 text-sm'/>
+                                        <select name='intensidad' className='bg-white rounded text-black p-1 text-sm'>
+                                            <option value={1}>1</option>
+                                            <option value={2}>2</option>
+                                            <option value={3}>3</option>
+                                            <option value={4}>4</option>
+                                            <option value={5}>5</option>
+                                        </select>
                                     </div>
                                 </div>
                                 Describe tu café:
