@@ -11,15 +11,11 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const cambiarMensaje = (mensaje) => {
-    setMensajeError(mensaje)
-  }
-
   const comprobarLogin = async (e) => {
     e.preventDefault();
 
     if (email === '' || password === '') {
-      cambiarMensaje('Por favor, completa todos los campos.')
+      setMensajeError('Por favor, completa todos los campos.')
       return;
     }
 
@@ -38,7 +34,7 @@ function Login() {
       navigate('/MainPage')
 
     } catch (error) {
-        cambiarMensaje(error.response.data.message)
+        setMensajeError(error.response.data.message)
       }
     
   }

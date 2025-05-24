@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/posts', getPosts);
 router.get('/posts/:id_user', getMyPosts)
-router.post('/posts', createPost);
+router.post('/posts', subirPost.single('foto'), createPost);
 
 export default router;

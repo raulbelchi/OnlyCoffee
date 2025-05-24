@@ -24,7 +24,7 @@ function Profile() {
         formData.append('pfp', imagen)
 
         try {
-            const response = await axios.put('http://localhost:3000/users/pfp', formData, ); //Llamamos a la función pasaándole los datos del FormData
+            const response = await axios.put('http://localhost:3000/users/pfp', formData); //Llamamos a la función pasaándole los datos del FormData
 
             //Actualizamos el usuario en el localStorage
             const usuarioActualizado = {

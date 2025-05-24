@@ -20,8 +20,14 @@ export const getMyPosts = async (req, res) => {
 
 export const createPost = async (req, res) => {
     try{
-        const { metodoEx, cafetera, cafe, intesidad, descripcion, user_id, foto } = req.body;
+        const { metodoEx, cafetera, cafe, intesidad, descripcion, user_id } = req.body;
 
+        // Verificamos si se ha subido una imagen correctamente
+        if (!req.file) {
+            return res.status(400).json({ message: "No se envió ninguna imagen." });
+        }
+
+        const foto = req.file.name
         const newPost = await Post.create({
             metodoEx,
             cafetera,
