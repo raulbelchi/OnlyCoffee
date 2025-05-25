@@ -19,7 +19,7 @@ export const Post = sequelize.define('posts', {
         type: DataTypes.STRING(30),
         allowNull: false
     },
-    intesidad: {
+    intensidad: {
         type: DataTypes.INTEGER,
         allowNull: false
     },

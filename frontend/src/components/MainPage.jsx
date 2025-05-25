@@ -9,7 +9,7 @@ function MainPage(){
     const[metodoEx, setMetodoEx] = useState('')
     const[cafetera, setCafetera] = useState('')
     const[cafe, setCafe] = useState('')
-    const[intensidad, setIntensidad] = useState('')
+    const[intensidad, setIntensidad] = useState(1)
     const[descripcion, setDescripcion] = useState('')
     const[fotoPost, setFotoPost] = useState('')
 
@@ -41,6 +41,8 @@ function MainPage(){
 
         try{
             const response = await axios.post('http://localhost:3000/posts', formData)
+
+            setMostrarForm(!mostrarForm)
         } catch(error) {
             console.error('Error al enviar el formulario:', error);
         }
@@ -93,7 +95,7 @@ function MainPage(){
 
                                         Intensidad: 
                                         <select 
-                                            value= ''
+                                            value= { intensidad }
                                             name='intensidad' 
                                             className='bg-white rounded text-black p-1 text-sm'
                                             onChange={(e) => {setIntensidad(e.target.value)}}

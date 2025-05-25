@@ -89,3 +89,37 @@ export const cambiarPfp = async(req, res) => {
         return res.status(500).json({ message: error.message });
     }
 }
+
+export const getUserPfp = async(req, res) => {
+    const { id } = req.body
+
+    try {
+    //Buscar usuario
+    const user = await User.findOne({where: { id } });
+    if(!user){
+        return res.status(401).json({ message: 'Usuario no encontrado' });
+    }
+
+    //Si se encuentra al usuario nos devuelve su foto de perfil
+    res.json(user.pfp);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
+export const getUserUsername = async(req, res) => {
+    const { id } = req.body
+
+    try {
+    //Buscar usuario
+    const user = await User.findOne({where: { id } });
+    if(!user){
+        return res.status(401).json({ message: 'Usuario no encontrado' });
+    }
+
+    //Si se encuentra al usuario nos devuelve su foto de perfil
+    res.json(user.username);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
