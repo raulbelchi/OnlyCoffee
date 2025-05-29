@@ -5,6 +5,8 @@ import axios from 'axios';
 function MainPage(){
     const [mostrarForm, setMostrarForm] = useState(false);
     const[mensajeError, setMensajeError] = useState('')
+    //Lo pasaremos como prop para que se actualicen los posts al subir uno nuevo
+    const [nuevoPost, setNuevoPost] = useState(false)
     //Datos del formulario
     const[metodoEx, setMetodoEx] = useState('')
     const[cafetera, setCafetera] = useState('')
@@ -28,8 +30,7 @@ function MainPage(){
             return;
         }
 
-
-        // Guardamos los datos en un formdata ya que estamos trabajando con imágenes
+        //Guardamos los datos en un formdata ya que estamos trabajando con imágenes
         const formData = new FormData()
         formData.append('metodoEx', metodoEx)
         formData.append('cafetera', cafetera)
@@ -43,6 +44,7 @@ function MainPage(){
             const response = await axios.post('http://localhost:3000/posts', formData)
 
             setMostrarForm(!mostrarForm)
+            setNuevoPost(!nuevoPost) //Forzamos la actualización
         } catch(error) {
             console.error('Error al enviar el formulario:', error);
         }
@@ -57,7 +59,8 @@ function MainPage(){
             Nuevo post
             </button>
 
-            <Posts/>
+            {/*Le pasamos la prop para que se actualice cuando se suba un nuevo post*/}
+            <Posts nuevoPost = {nuevoPost}/> 
 
             {/* El formulario solo se muestra si el estado es true */}
             {mostrarForm && (

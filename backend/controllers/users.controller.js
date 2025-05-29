@@ -60,7 +60,7 @@ export const loginUser = async (req, res) => {
     }
 }
 
-export const cambiarPfp = async(req, res) => {
+export const cambiarPfp = async (req, res) => {
     const { id } = req.body
 
     // Verificamos si se ha subido la imagen correctamente
@@ -90,7 +90,7 @@ export const cambiarPfp = async(req, res) => {
     }
 }
 
-export const getUserPfp = async(req, res) => {
+export const getUserPfp = async (req, res) => {
     const { id } = req.body
 
     try {
@@ -107,7 +107,7 @@ export const getUserPfp = async(req, res) => {
     }
 }
 
-export const getUserUsername = async(req, res) => {
+export const getUserUsername = async (req, res) => {
     const { id } = req.body
 
     try {

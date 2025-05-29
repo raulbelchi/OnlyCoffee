@@ -1,5 +1,6 @@
 import {DataTypes} from 'sequelize';
 import { sequelize } from '../database/database.js';
+import { PostLikes } from './PostLikes.js'; // Importar el modelo de PostLikes para establecer la relación
 
 export const Post = sequelize.define('posts', {
     id: {
@@ -40,4 +41,15 @@ export const Post = sequelize.define('posts', {
         allowNull: true,
         defaultValue: 0
     },
+});
+
+//Relaciones con la tabla PostLikes
+Post.hasMany(PostLikes, {
+    foreignKey: 'post_id',
+    sourceKey: 'id'
+});
+
+PostLikes.belongsTo(Post, {
+    foreignKey: 'post_id',
+    targetKey: 'id'
 });

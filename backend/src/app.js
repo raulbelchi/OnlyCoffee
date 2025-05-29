@@ -1,6 +1,7 @@
 import express from 'express';
 import userRoutes from '../routes/users.routes.js';
 import postsRoutes from '../routes/posts.routes.js';
+import postLikesRoutes from '../routes/postLikes.routes.js';
 import cors from 'cors'; //Escuchar peticiones desde el frontend
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
@@ -12,6 +13,7 @@ app.use(express.json()) //para recibir datos en formato json
 app.use(cors({ //para permitir el acceso desde el frontend
     origin: 'http://localhost:5173', 
 }))
+
 //Servir las imágenes al frontend
 const CURRENT_DIR = dirname(fileURLToPath(import.meta.url))
 app.use('/postPictures', express.static(join(CURRENT_DIR, "../imgs/postPictures")))
@@ -28,5 +30,6 @@ app.use((req, res, next) => {
 
 app.use(userRoutes)
 app.use(postsRoutes)
+app.use(postLikesRoutes)
 
 export default app;
