@@ -17,7 +17,7 @@ function Title() {
         {
           user ? (
             <Link to='/mainpage'>
-              <button className='bg-coffee text-white p-2 rounded-md cursor-pointer text-2xl w-30 font-semibold'>Entrar</button>
+              <button className='bg-coffee text-white p-2 rounded-md cursor-pointer text-2xl w-30'>Entrar</button>
             </Link>
           ) :
           (
