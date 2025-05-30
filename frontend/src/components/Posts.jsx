@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-function Posts({ nuevoPost }) {
+function Posts({ nuevoPost, filtros }) {
 
     const[posts, setPosts] = useState([])
     // Con esto forzaremos que se actualice el componente al subir un post
@@ -21,7 +21,7 @@ function Posts({ nuevoPost }) {
         const mostrarPosts = async () => {
             try{
                 if(location.pathname === '/mainpage'){ //Si estamos en main mostramos todos los posts
-                    const response = await axios.get('http://localhost:3000/posts')
+                    const response = await axios.get(`http://localhost:3000/posts/${filtros}`)
                     setPosts(response.data)
                 } else if(location.pathname === '/profile'){ //Si estamos en la página del perfil mostramos solo nuestros posts
                     const response = await axios.post('http://localhost:3000/myposts', {
@@ -40,7 +40,7 @@ function Posts({ nuevoPost }) {
         }
 
         mostrarPosts()
-    }, [location.pathname, recargarPosts, nuevoPost]) //El componente se actualiza cuando cambia la ruta o se sube un post
+    }, [location.pathname, recargarPosts, nuevoPost, filtros]) //El componente se actualiza cuando cambia la ruta, se sube un post o cambian los filtros
 
     //FUNCIÓN PARA LA GESTIÓN DE LOS LIKES
     const clickLike = async (postID) => {

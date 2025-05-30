@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faClock} from '@fortawesome/free-solid-svg-icons'
+
 import Posts from './Posts'
 import { useState } from 'react'
 import axios from 'axios';
@@ -5,6 +8,7 @@ import axios from 'axios';
 function MainPage(){
     const [mostrarForm, setMostrarForm] = useState(false);
     const[mensajeError, setMensajeError] = useState('')
+    const [filtros, setFiltros] = useState('createdAt')
     //Lo pasaremos como prop para que se actualicen los posts al subir uno nuevo
     const [nuevoPost, setNuevoPost] = useState(false)
     //Datos del formulario
@@ -52,15 +56,29 @@ function MainPage(){
 
     return (
         <div className='h-screen w-screen p-5 flex justify-around'>
-            <button
-                onClick={() => setMostrarForm(!mostrarForm)}
-                className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-auto self-start'
-            >
-            Nuevo post
-            </button>
+            <div className='flex flex-col h-full items-center'>
+                <button
+                    onClick={() => setMostrarForm(!mostrarForm)}
+                    className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-auto self-start mb-10'
+                >
+                Nuevo post
+                </button>
+                <div
+                    className={'flex items-center gap-3 font-lato text-gray-400 font-semibold text-xl cursor-pointer rounded-lg p-2 mb-3 ' + (filtros == 'createdAt' ? 'bg-gray-200' : 'bg-white')}
+                    onClick={() => setFiltros('createdAt')}
+                >
+                    <p>Más recientes</p><FontAwesomeIcon icon={faClock}/>
+                </div>
+                <div
+                    className={'flex items-center gap-3 font-lato text-gray-400 font-semibold text-xl cursor-pointer rounded-lg p-2 ' + (filtros == 'likes' ? 'bg-gray-200' : 'bg-white')}
+                    onClick={() => setFiltros('likes')}
+                >
+                    <p>Más gustados</p><FontAwesomeIcon icon={faHeart}/>
+                </div>
+            </div>
 
-            {/*Le pasamos la prop para que se actualice cuando se suba un nuevo post*/}
-            <Posts nuevoPost = {nuevoPost}/> 
+            {/*Le pasamos la prop para que se actualice cuando se suba un nuevo post o se cambien los filtros*/}
+            <Posts nuevoPost = {nuevoPost} filtros = {filtros}/> 
 
             {/* El formulario solo se muestra si el estado es true */}
             {mostrarForm && (

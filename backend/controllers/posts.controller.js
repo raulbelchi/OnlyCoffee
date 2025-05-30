@@ -3,13 +3,15 @@ import { User } from '../models/Users.js';
 
 export const getPosts = async (req, res) => {
     try{
+        const orden = req.params.orden
+        
         const posts = await Post.findAll({
             // Para que también seleccione el nombre de usuario y la foto de perfil del usuario que ha subido el post
             include: [{
                 model: User,
                 attributes: ['username', 'profilePicture']
             }],
-            order: [['createdAt', 'DESC']] //Para ordenar del más nuevo al más antiguo
+            order: [[orden, 'DESC']] //Para ordenar del más nuevo al más antiguo
         })
         console.log(JSON.stringify(posts, null, 2));  // Ver exactamente qué trae
         res.json(posts);
