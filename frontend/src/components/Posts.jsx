@@ -58,7 +58,7 @@ function Posts({ nuevoPost, filtros }) {
                 })
 
                 //Borramos el registro del like en la tabla PostLikes
-                const guardarRegistro = await axios.delete('http://localhost:3000/postlikes/borrarRegistro', {
+                const borrarRegistro = await axios.delete('http://localhost:3000/postlikes/borrarRegistro', {
                     data: {
                         user_id: user.id,
                         post_id: postID
