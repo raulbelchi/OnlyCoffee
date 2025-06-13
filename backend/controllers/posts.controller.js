@@ -96,7 +96,7 @@ export const quitarLike = async (req, res) => {
         if (!post) {
             return res.status(404).json({ message: 'No se ha encontrado el post' });
         } else if(post.likes >= 0){
-            const sumarLike = Post.update(
+            const restarLike = Post.update(
             {likes: post.likes - 1},
             {where: { id }}
             )

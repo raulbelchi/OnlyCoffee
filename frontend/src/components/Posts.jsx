@@ -40,7 +40,7 @@ function Posts({ nuevoPost, filtros }) {
         }
 
         mostrarPosts()
-    }, [location.pathname, recargarPosts, nuevoPost, filtros]) //El componente se actualiza cuando cambia la ruta, se sube un post o cambian los filtros
+    }, [location.pathname, recargarPosts, nuevoPost, filtros]) //El componente se actualiza cuando cambia la ruta, se sube un post, cambian los filtros o se da like
 
     //FUNCIÓN PARA LA GESTIÓN DE LOS LIKES
     const clickLike = async (postID) => {
@@ -92,7 +92,7 @@ function Posts({ nuevoPost, filtros }) {
     return (
         <div className='gap-4 p-4 h-full w-300 flex flex-col items-center overflow-y-scroll bg-fixed'>
             { posts.map((post) => (
-                <div key={ post.id } className='flex w-3/4 h-auto bg-gray-200 p-8 rounded-2xl justify-between'>
+                <div key={ post.id } className='flex w-230 h-auto bg-gray-200 p-8 rounded-2xl justify-between'>
                     <div className='mr-5'>
                         <div className='flex items-center gap-3'>
                             <div className='rounded-full w-20 h-20 flex items-center justify-center overflow-hidden'> 
@@ -101,21 +101,21 @@ function Posts({ nuevoPost, filtros }) {
                             <span className='font-bold text-xl'>@{ post.user.username }</span>
                         </div>
                         <div className='flex gap-8 mt-4'>
-                            <div>
-                                <span className='font-bold text-lg'>Método de extracción</span><br/>
+                            <div className='w-1/2'>
+                                <span className='font-bold text-lg text-nowrap'>Método de extracción</span><br/>
                                 <span className='text-lg'>{ post.metodoEx }</span>
                             </div>
-                            <div>
+                            <div className='w-1/2'>
                                 <span className='font-bold text-lg'>Cafetera</span><br/>
                                 <span className='text-lg'>{ post.cafetera }</span>
                             </div>
                         </div>
                         <div className='flex gap-8 mt-4'>
-                            <div>
+                            <div className='w-1/2'>
                                 <span className='font-bold text-lg'>Café</span><br/>
                                 <span className='text-lg'>{ post.cafe }</span>
                             </div>
-                            <div>
+                            <div className='w-1/2'>
                                 <span className='font-bold text-lg'>Intensidad</span><br/>
                                 <span className='text-lg'>{ post.intensidad }/5</span>
                             </div>
@@ -126,7 +126,7 @@ function Posts({ nuevoPost, filtros }) {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <div className='rounded-lg h-100 w-auto flex items-center justify-center overflow-hidden'> 
+                        <div className='rounded-lg h-100 w-100 flex items-center justify-center overflow-hidden'> 
                             <img src={'http://localhost:3000/postPictures/' + post.foto} className='h-100 w-auto  object-cover'/>
                         </div>
                         

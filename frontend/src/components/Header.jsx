@@ -15,7 +15,7 @@ function Header() {
     window.addEventListener('sesionCambiada', actualizarEstado)
 
     return () => {
-      window.removeEventListener('userChanged', actualizarEstado);
+      window.removeEventListener('sesionCambiada', actualizarEstado);
     };
   }, []);
 
