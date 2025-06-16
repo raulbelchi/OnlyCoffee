@@ -14,9 +14,9 @@ function Posts({ nuevoPost, filtros }) {
     const [postsConLike, setPostsConLike] = useState([]);
 
     const location = useLocation() //Para diferenciar en que ruta estamos
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem('user'));
 
-    //useEffect lo uso para que se carguen los posts cuando se cambia de ruta o se sube uno nuevo
+    //Este useEffect lo uso para que se carguen los posts cuando cambia la ruta, se sube un post, cambian los filtros o se da like
     useEffect(() => {
         const mostrarPosts = async () => {
             try{
@@ -40,7 +40,7 @@ function Posts({ nuevoPost, filtros }) {
         }
 
         mostrarPosts()
-    }, [location.pathname, recargarPosts, nuevoPost, filtros]) //El componente se actualiza cuando cambia la ruta, se sube un post, cambian los filtros o se da like
+    }, [location.pathname, recargarPosts, nuevoPost, filtros])
 
     //FUNCIÓN PARA LA GESTIÓN DE LOS LIKES
     const clickLike = async (postID) => {

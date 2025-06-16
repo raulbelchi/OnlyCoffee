@@ -30,8 +30,8 @@ function Login() {
       localStorage.setItem('user', JSON.stringify(response.data));
       // Disparamos un evento para poder actualizar el header
       window.dispatchEvent(new Event('sesionCambiada'));
-      //redirige a /MainPage si todo ha ido bien
-      navigate('/MainPage')
+      //redirige a /mainpage si todo ha ido bien
+      navigate('/mainpage')
 
     } catch (error) {
         setMensajeError(error.response.data.message)

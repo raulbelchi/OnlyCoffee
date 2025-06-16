@@ -51,8 +51,8 @@ function Register() {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 // Disparamos un evento para poder actualizar el header
                 window.dispatchEvent(new Event('sesionCambiada'));
-                //Redirige a /MainPage si todo ha ido bien
-                navigate('/MainPage')
+                //Redirige a /mainpage si todo ha ido bien
+                navigate('/mainpage')
 
             } catch (error) {
                 console.error('Error al enviar el formulario:', error);
